@@ -21,14 +21,8 @@
     #define WH color_manager(2)
     #define MINI " ⬼ minishell ⤗ "
     #define ACCESS(str) access(str, F_OK)
-typedef struct method_s method_t;
 typedef struct shell_s shell_t;
 typedef struct vector2f_s v2f;
-
-struct method_s {
-    char **and;
-    char **ptv;
-};
 
 struct shell_s {
     char **env;
