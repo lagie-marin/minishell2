@@ -1,16 +1,17 @@
 name: chocolatine
-run-name: ${{github.actor}} minishell2 test run
+run-name: ${{github.actor}} chocolatine test run
 on:
     push:
         branches-ignore:
             - " ga-ignore-*"
-        
     pull_request:
         branches-ignore:
             - " ga-ignore-*"
+
 env:
-    MIRROR_URL: git@github.com:EpitechPromo2028/B-PSU-200-LYN-2-1-minishell2-marin.lagie.git
-    EXECUTABLES: "mysh"
+    MIRROR_URL: git@github.com:EpitechPromo2028/B-DOP-200-LYN-2-1-chocolatine-marin.lagie.git
+    EXECUTABLES: "tester"
+    ALLOW_FUNC: "write"
 
 jobs:
     check_coding_style:
@@ -26,22 +27,16 @@ jobs:
             - name: Check coding-style errors
               run: |
                   input=$(pwd)/coding-style-reports.log
-                  while IFS= read -r -a line; do
-                      fields=($(printf "%s" "$line"|cut -d':' --output-delimiter=' ' -f1-))
-                      echo "::error title=${fields[2]} coding style error,file=${fields[0]},line=${fields[1]}::${fields[3]}"
-                  done < $input
-            - name: Report banana result
-              run: |
-                  NB_ERROR=$(cat "$(pwd)/coding-style-reports.log" | wc -l)
-                  if [ $NB_ERROR -gt 0 ]; then
+                  awk -F':' '{print "::error title="$3" coding style error,file="$1",line="$2"::"$4}' $input
+                  if [ -s $input ]; then
                       exit 1
                   fi
-
     check_program_compilation:
         runs-on: ubuntu-latest
         timeout-minutes: 2
         container: epitechcontent/epitest-docker:latest
-        needs: check_coding_style
+        needs:
+            - check_coding_style
         steps:
             - name: Checkout GH repo
               uses: actions/checkout@v4
