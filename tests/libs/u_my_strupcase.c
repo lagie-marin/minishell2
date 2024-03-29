@@ -5,7 +5,7 @@
 ** u_my_strupcase.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_strupcase , check_str_upper )
 {

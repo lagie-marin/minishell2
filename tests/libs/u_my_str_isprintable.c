@@ -4,7 +4,7 @@
 ** File description:
 ** u_my_str_isprintable.c
 */
-#include "../../include/my.h"
+#include "my.h"
 #include <criterion/criterion.h>
 
 Test ( my_str_isprintable , check_str_Bjd5sd46_is_printable )

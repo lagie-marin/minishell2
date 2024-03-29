@@ -5,7 +5,7 @@
 ** u_my_strcpy.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 #include <string.h>
 
 Test ( my_strcpy , check_cpy_hello )

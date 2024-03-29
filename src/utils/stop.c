@@ -4,10 +4,11 @@
 ** File description:
 ** stop.c
 */
-#include "../../include/minishell.h"
+#include "minishell.h"
 
-void stop(char *status, char *path, char **args, char *error)
+void stop(char *status, char *path, char *error)
 {
     my_printf("%s%s", path, error);
-    my_kill(status, args);
+    FREE(path);
+    my_kill(status);
 }

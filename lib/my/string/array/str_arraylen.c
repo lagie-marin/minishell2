@@ -4,7 +4,7 @@
 ** File description:
 ** str_arraylen.c
 */
-#include "../../../../include/my.h"
+#include "my.h"
 
 int str_arraylen(char **src)
 {

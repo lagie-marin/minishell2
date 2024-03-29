@@ -4,7 +4,7 @@
 ** File description:
 ** u_my_strncat.c
 */
-#include "../../include/my.h"
+#include "my.h"
 #include <criterion/criterion.h>
 #include <string.h>
 

@@ -5,7 +5,7 @@
 ** u_free_strarray.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( free_strarray , check_free_array_with_element )
 {

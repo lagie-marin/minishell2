@@ -5,7 +5,7 @@
 ** my_itoa.c
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 void my_itoa(int value, char *buffer)
 {

@@ -4,7 +4,7 @@
 ** File description:
 ** my_strncpy.c
 */
-#include "../../../include/my.h"
+#include "my.h"
 
 char *my_strncpy(char *dest, char const *src, int n)
 {

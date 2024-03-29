@@ -5,7 +5,7 @@
 ** u_my_compute_square_root.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_compute_square_root , square_root_of_9_is_3 )
 {

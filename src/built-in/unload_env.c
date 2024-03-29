@@ -4,7 +4,7 @@
 ** File description:
 ** unload_env.c
 */
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 int unload_env(void)
 {

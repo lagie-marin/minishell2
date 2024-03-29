@@ -5,7 +5,7 @@
 ** u_my_str_isnum.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_str_isnum , check_985_isnum )
 {

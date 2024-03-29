@@ -4,41 +4,47 @@
 ** File description:
 ** main.c
 */
-#include "../include/minishell.h"
-
+#include "minishell.h"
+#include <string.h>
 shell_t *Shell;
 
-static char **parsing(char *input)
+static void parsing(char *input)
 {
-    char **command;
-    char **commands;
-    int i = 0;
+    char *command = strtok(input, ";");
 
-    command = my_strtok(input, ';');
-    commands = malloc(str_arraylen(command) * sizeof(char **));
-    for (; command[i]; i++)
-        commands[i] = my_str_to_word_array(command[i]);
-    commands[i] = NULL;
-    free_strarray(command);
-    return commands;
+    while (command != NULL) {
+        add_command(command);
+        command = strtok(NULL, ";");
+    }
+}
+
+static void play_command(commands_t *cmd)
+{
+    if (!builtin(cmd))
+        execute(cmd);
+    if (!isatty(STDIN_FILENO) && cmd->error != 0)
+        exit(1);
 }
 
 static void minishell(void)
 {
-    char **args;
     char *input = NULL;
     size_t len = 0;
-    ssize_t bytes = 0;
+    commands_t *cmd;
 
     while (1) {
         if (isatty(STDIN_FILENO))
             my_printf("%s[~%s%s%s ~] %s~⭼ %s", RE, BL, MINI, RE, BL, WH);
-        bytes = my_getline(&input, &len, stdin);
-        args = my_str_to_word_array(input);
+        my_getline(&input, &len, stdin);
+        parsing(input);
+        cmd = Shell->commands;
+        while (cmd != NULL) {
+            play_command(cmd);
+            cmd = cmd->next;
+        }
+        rm_all_command();
         FREE(input);
         input = NULL;
-        if (args != NULL && !builtin(args[0], &args[1]))
-            execute(args[0], args, bytes);
     }
 }
 
@@ -48,6 +54,7 @@ int main(int ac, char const **av, char **env)
         return 84;
     Shell = malloc(sizeof(shell_t));
     Shell->exit = &stop;
+    Shell->commands = NULL;
     load_env(env);
     minishell();
     unload_env();

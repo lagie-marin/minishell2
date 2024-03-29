@@ -4,7 +4,7 @@
 ** File description:
 ** load_env.c
 */
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 void load_env(char **env)
 {

@@ -5,7 +5,7 @@
 ** my_sqrt.c
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int my_sqrt(int start, int nb)
 {

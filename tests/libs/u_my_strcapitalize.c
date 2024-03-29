@@ -4,7 +4,7 @@
 ** File description:
 ** u_my_strcapitalize.c
 */
-#include "../../include/my.h"
+#include "my.h"
 #include <criterion/criterion.h>
 
 Test ( my_strcapitalize , check_salle_is_Salle )

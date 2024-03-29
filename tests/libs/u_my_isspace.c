@@ -4,7 +4,7 @@
 ** File description:
 ** u_my_isspace.c
 */
-#include "../../include/my.h"
+#include "my.h"
 #include <ctype.h>
 #include <criterion/criterion.h>
 

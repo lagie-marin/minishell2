@@ -5,8 +5,8 @@
 ** u_my_put_float.c
 */
 #include <criterion/criterion.h>
-#include "../../include/crit.h"
-#include "../../include/my.h"
+#include "crit.h"
+#include "my.h"
 
 Test ( my_put_float , check_if_9_2_print_9_2, .init=redirect_all_stdout )
 {

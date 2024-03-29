@@ -4,7 +4,7 @@
 ** File description:
 ** my_cd.c
 */
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 static void set_pwd(void)
 {

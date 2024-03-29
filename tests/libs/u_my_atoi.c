@@ -5,7 +5,7 @@
 ** u_my_atoi.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_atoi , check_str_65_return_65_in_int )
 {

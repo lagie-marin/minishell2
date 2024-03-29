@@ -4,7 +4,7 @@
 ** File description:
 ** u_my_strlowcase.c
 */
-#include "../../include/my.h"
+#include "my.h"
 #include <criterion/criterion.h>
 
 Test ( my_strlowcase , check_Carte_eq_carte )

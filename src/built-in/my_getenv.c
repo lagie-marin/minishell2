@@ -4,7 +4,7 @@
 ** File description:
 ** my_getenv.c
 */
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 int compare_type(char *str, char *str1)
 {

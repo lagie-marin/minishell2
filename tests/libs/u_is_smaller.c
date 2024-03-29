@@ -5,7 +5,7 @@
 ** u_is_smaller.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( is_smaller , check_first_is_larger_than_sec )
 {

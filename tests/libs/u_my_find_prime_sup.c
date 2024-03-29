@@ -5,7 +5,7 @@
 ** u_my_find_prime_sup.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_find_prime_sup , check_prime_nb_closest_7_is_7 )
 {

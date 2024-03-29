@@ -4,7 +4,7 @@
 ** File description:
 ** my_str_is_alphanumeric.c
 */
-#include "../../include/my.h"
+#include "my.h"
 
 int my_str_is_alphanumeric(char *str)
 {

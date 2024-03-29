@@ -4,8 +4,8 @@
 ** File description:
 ** my_unsetenv.c
 */
-#include "../../include/my.h"
-#include "../../include/minishell.h"
+#include "my.h"
+#include "minishell.h"
 
 static void update_env(int cmp, char **new, int i, int *pos)
 {

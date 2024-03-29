@@ -5,7 +5,7 @@
 ** u_my_strcmp.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_strcmp , check_reverse_string )
 {

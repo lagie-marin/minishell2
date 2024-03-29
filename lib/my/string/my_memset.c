@@ -4,7 +4,7 @@
 ** File description:
 ** my_memset.c
 */
-#include "../../../include/my.h"
+#include "my.h"
 
 char *my_memset(char *str, char ch, int length)
 {

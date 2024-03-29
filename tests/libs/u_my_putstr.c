@@ -5,8 +5,8 @@
 ** u_my_putstr.c
 */
 #include <criterion/criterion.h>
-#include "../../include/crit.h"
-#include "../../include/my.h"
+#include "crit.h"
+#include "my.h"
 
 Test ( my_putstr , print_null_string, .init=redirect_all_stdout )
 {

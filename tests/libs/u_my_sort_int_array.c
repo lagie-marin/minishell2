@@ -5,7 +5,7 @@
 ** u_my_sort_int_array.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_sort_int_array , check_reverse_arr_int_rand )
 {

@@ -4,7 +4,7 @@
 ** File description:
 ** u_my_str_islow.c
 */
-#include "../../include/my.h"
+#include "my.h"
 #include <criterion/criterion.h>
 
 Test ( my_str_islower , check_str_epitech_is_low )

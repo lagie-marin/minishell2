@@ -4,7 +4,7 @@
 ** File description:
 ** my_setenv.c
 */
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 static int check_syntaxe(char *var)
 {

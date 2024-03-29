@@ -4,7 +4,7 @@
 ** File description:
 ** redirect_all_stdout.c
 */
-#include "../../include/crit.h"
+#include "crit.h"
 
 void redirect_all_stdout(void)
 {

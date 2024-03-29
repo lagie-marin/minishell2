@@ -5,7 +5,7 @@
 ** u_swap_char.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_swap_char , check_swap_Tr_inrT )
 {

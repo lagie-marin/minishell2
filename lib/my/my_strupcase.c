@@ -4,7 +4,7 @@
 ** File description:
 ** my_strupcase.c
 */
-#include "../../include/my.h"
+#include "my.h"
 
 char *my_strupcase(char *str)
 {

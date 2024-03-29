@@ -4,7 +4,7 @@
 ** File description:
 ** my_strncat.c
 */
-#include "../../../include/my.h"
+#include "my.h"
 
 char *my_strncat(char *dest, char const *src, int nb)
 {

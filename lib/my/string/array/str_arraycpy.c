@@ -4,7 +4,7 @@
 ** File description:
 ** str_arraycpy.c
 */
-#include "../../../../include/my.h"
+#include "my.h"
 
 char **str_arraycpy(char **dest, char **src)
 {

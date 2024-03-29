@@ -5,7 +5,7 @@
 ** u_get_int.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( get_int , check_get_int_9_995_in_9 )
 {

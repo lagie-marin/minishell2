@@ -4,7 +4,7 @@
 ** File description:
 ** str_arraydup.c
 */
-#include "../../../../include/my.h"
+#include "my.h"
 
 char **str_arraydup(char **src)
 {

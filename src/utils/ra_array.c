@@ -4,7 +4,7 @@
 ** File description:
 ** ra_array.c
 */
-#include "../../include/my.h"
+#include "my.h"
 
 char **ra_array(char **array, char *new_line)
 {

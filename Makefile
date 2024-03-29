@@ -1,37 +1,43 @@
 ##
 ## EPITECH PROJECT, 2024
-## B-PSU-200-LYN-2-1-minishell1-marin.lagie
+## minishell2
 ## File description:
 ## Makefile
 ##
-SRC = ./src/main.c \
-	./src/built-in/my_env.c \
-	./src/built-in/my_kill.c \
-	./src/built-in/my_unsetenv.c \
-	./src/built-in/my_getenv.c \
-	./src/built-in/my_setenv.c \
-	./src/built-in/load_env.c \
-	./src/built-in/unload_env.c \
+SRC = ./src/built-in/load_env.c \
 	./src/built-in/my_cd.c \
+	./src/built-in/my_env.c \
+	./src/built-in/my_getenv.c \
+	./src/built-in/my_kill.c \
+	./src/built-in/my_setenv.c \
+	./src/built-in/my_unsetenv.c \
+	./src/built-in/unload_env.c \
 	./src/execute.c \
-	./src/utils/ra_strcat.c \
-	./src/utils/ra_array.c \
+	./src/main.c \
 	./src/utils/builtin.c \
-	./src/utils/stop.c \
 	./src/utils/color_manager.c \
 	./src/utils/my_getline.c \
+	./src/utils/ra_array.c \
+	./src/utils/ra_strcat.c \
+	./src/utils/stop.c \
+	./src/utils/commands.c \
+	./src/utils/error/segfault.c \
+	./src/utils/error/error_file.c \
 
 SRC_TEST = ./lib/my/ch_into_str.c \
 	./lib/my/get_int.c \
 	./lib/my/is_smaller.c \
+	./lib/my/letters.c \
 	./lib/my/maths/my_compute_power_rec.c \
 	./lib/my/maths/my_compute_square_root.c \
 	./lib/my/maths/my_find_prime_sup.c \
 	./lib/my/maths/my_is_prime.c \
 	./lib/my/maths/power.c \
 	./lib/my/my_intlen.c \
+	./lib/my/my_isspace.c \
 	./lib/my/my_itoa.c \
 	./lib/my/my_sqrt.c \
+	./lib/my/my_str_is_alphanumeric.c \
 	./lib/my/my_strcapitalize.c \
 	./lib/my/my_strlowcase.c \
 	./lib/my/my_strupcase.c \
@@ -45,7 +51,9 @@ SRC_TEST = ./lib/my/ch_into_str.c \
 	./lib/my/puts/my_putnbr_base_long.c \
 	./lib/my/puts/my_putstr.c \
 	./lib/my/puts/my_show_word_array.c \
+	./lib/my/puts/my_printf.c \
 	./lib/my/search.c \
+	./lib/my/str.c \
 	./lib/my/string/array/my_sort_int_array.c \
 	./lib/my/string/array/my_str_to_word_array.c \
 	./lib/my/string/array/str_arraycpy.c \
@@ -66,10 +74,6 @@ SRC_TEST = ./lib/my/ch_into_str.c \
 	./lib/my/string/my_strncpy.c \
 	./lib/my/string/my_strstr.c \
 	./lib/my/string/my_strtok.c \
-	./lib/my/letters.c \
-	./lib/my/my_isspace.c \
-	./lib/my/str.c \
-	./lib/my/my_str_is_alphanumeric.c \
 	./tests/libs/u_array_cpy.c \
 	./tests/libs/u_char_in_str.c \
 	./tests/libs/u_free_strarray.c \
@@ -82,6 +86,7 @@ SRC_TEST = ./lib/my/ch_into_str.c \
 	./tests/libs/u_my_gcvt.c \
 	./tests/libs/u_my_intlen.c \
 	./tests/libs/u_my_isletter.c \
+	./tests/libs/u_my_isspace.c \
 	./tests/libs/u_my_itoa.c \
 	./tests/libs/u_my_memset.c \
 	./tests/libs/u_my_put_float.c \
@@ -114,11 +119,11 @@ SRC_TEST = ./lib/my/ch_into_str.c \
 	./tests/libs/u_str_arraydup.c \
 	./tests/libs/u_swap_char.c \
 	./tests/libs/u_swap_str.c \
-	./tests/libs/u_my_isspace.c \
 	./tests/redirect/redirect_all_stdout.c \
 
 OBJ = ${SRC:.c=.o}
-CFLAGS = -g3 -Wall -Wextra
+OBJ_TEST = ${SRC_TEST:.c=.o}
+CFLAGS = -g3 -Wall -Wextra -Iinclude
 NAME = mysh
 all: $(NAME)
 
@@ -129,6 +134,7 @@ $(NAME): $(OBJ)
 clean:
 	make -C lib/my/ clean
 	rm -f ${OBJ}
+	rm -f ${OBJ_TEST}
 	rm -f *.gcda
 	rm -f *.gcno
 	rm -f unit_tests
@@ -137,7 +143,7 @@ fclean: clean
 	rm -f ${NAME}
 	rm -f vgcore.*
 tests_run:
-	gcc -o unit_tests ${SRC_TEST} --coverage -lcriterion
+	gcc -o unit_tests ${SRC_TEST} ${SRC} --coverage -lcriterion
 	./unit_tests
 	gcovr --exclude tests/
 

@@ -5,7 +5,7 @@
 ** u_char_in_str.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( ch_into_str, check_ch_into_str )
 {

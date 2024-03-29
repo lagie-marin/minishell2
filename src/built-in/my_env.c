@@ -4,7 +4,7 @@
 ** File description:
 ** my_env.c
 */
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 int my_env(void)
 {

@@ -4,13 +4,13 @@
 ** File description:
 ** my_kill.c
 */
-#include "../../include/minishell.h"
+#include "minishell.h"
 
-void my_kill(char *status, char **args)
+void my_kill(char *status)
 {
     int stat = status == NULL ? 0 : my_atoi(status);
 
-    free_strarray(args);
+    rm_all_command();
     unload_env();
     FREE(Shell);
     exit(stat);

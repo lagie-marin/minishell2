@@ -5,7 +5,7 @@
 ** search.c
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int search(int i, int nb)
 {

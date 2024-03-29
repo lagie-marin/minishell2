@@ -5,7 +5,7 @@
 ** u_my_str_isalpha.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_str_isalpha , check_if_hello_is_alpha )
 {

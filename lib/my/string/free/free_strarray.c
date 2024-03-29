@@ -4,7 +4,7 @@
 ** File description:
 ** free_strarray.c
 */
-#include "../../../../include/my.h"
+#include "my.h"
 
 int free_strarray(char **array)
 {

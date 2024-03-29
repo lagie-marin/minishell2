@@ -5,7 +5,7 @@
 ** u_my_intlen.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_intlen , check_if_len_of_9_is_1 )
 {

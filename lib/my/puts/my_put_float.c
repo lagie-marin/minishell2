@@ -5,7 +5,7 @@
 ** my_put_float.c
 */
 
-#include "../../../include/my.h"
+#include "my.h"
 
 void my_put_float(double number, int ndigit)
 {

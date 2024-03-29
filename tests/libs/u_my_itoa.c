@@ -5,7 +5,7 @@
 ** u_my_itoa.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_itoa , check_if_9_return_str9 )
 {

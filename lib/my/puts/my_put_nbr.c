@@ -4,7 +4,7 @@
 ** File description:
 ** my_put_nbr.c
 */
-#include "../../../include/my.h"
+#include "my.h"
 
 int my_put_nbr(int n)
 {

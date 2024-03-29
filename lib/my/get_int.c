@@ -4,7 +4,7 @@
 ** File description:
 ** get_int.c
 */
-#include "../../include/my.h"
+#include "my.h"
 
 int get_int(float fl)
 {

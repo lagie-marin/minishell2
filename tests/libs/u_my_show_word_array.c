@@ -5,8 +5,8 @@
 ** u_my_show_word_array.c
 */
 #include <criterion/criterion.h>
-#include "../../include/crit.h"
-#include "../../include/my.h"
+#include "crit.h"
+#include "my.h"
 
 Test (my_show_word_array, show_null_array, .init=redirect_all_stdout)
 {

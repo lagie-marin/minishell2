@@ -4,7 +4,7 @@
 ** File description:
 ** my_revstr.c
 */
-#include "../../../include/my.h"
+#include "my.h"
 
 char *my_revstr(char *dest, char const *src)
 {

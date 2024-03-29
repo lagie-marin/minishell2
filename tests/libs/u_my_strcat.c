@@ -5,7 +5,7 @@
 ** u_my_strcat.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 #include <string.h>
 
 Test ( my_strcat , check_cat_hello___word_in_hello_word )

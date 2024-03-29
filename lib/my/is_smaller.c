@@ -5,7 +5,7 @@
 ** is_smaller.c
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int is_smaller(int this, int *array, int size)
 {

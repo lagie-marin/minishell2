@@ -5,7 +5,7 @@
 ** u_my_revstr.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_revstr , check_reverse_string )
 {

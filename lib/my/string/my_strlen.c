@@ -4,7 +4,7 @@
 ** File description:
 ** my_strlen.c
 */
-#include "../../../include/my.h"
+#include "my.h"
 
 int my_strlen(char const *str)
 {

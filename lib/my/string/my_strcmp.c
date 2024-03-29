@@ -5,7 +5,7 @@
 ** cmp
 */
 
-#include "../../../include/my.h"
+#include "my.h"
 
 int my_strcmp(char const *s1, char const *s2)
 {

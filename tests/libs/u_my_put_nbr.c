@@ -5,8 +5,8 @@
 ** u_my_put_nbr.c
 */
 #include <criterion/criterion.h>
-#include "../../include/crit.h"
-#include "../../include/my.h"
+#include "crit.h"
+#include "my.h"
 
 Test ( my_put_nbr , check_if_8_print_8, .init=redirect_all_stdout )
 {

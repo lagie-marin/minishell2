@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2023
 ** B-CPE-100-LYN-1-1-cpoolday07-marin.lagie
 ** File description:
-** ../../include/my.h
+** my.h
 */
 #include <unistd.h>
 #include <stdlib.h>
@@ -252,7 +252,7 @@ int search(int i, int nb);
  * @param tab la liste à parcourir
  * @return int
  */
-int my_show_word_array(char *const *tab);
+int my_show_word_array(char **tab);
 
 /**
  * @brief permet de split chaque mot de la phase
@@ -374,10 +374,10 @@ int free_strarray(char **word_array);
 /**
  * @brief permet de split un str à partir d'un délimiteur
  * @param str la chaine à split
- * @param delimiters le caractère qui permettra de split
+ * @param delim le caractère qui permettra de split
  * @return char** retourne une liste qui contient le str split
  */
-char **my_strtok(const char *str, cc delimiters);
+char **my_strtok(const char *str, cc delim);
 
 /**
  * @brief permet de récuperer la taille de la liste

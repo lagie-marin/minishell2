@@ -5,7 +5,7 @@
 ** my_str_to_word_array.c
 */
 
-#include "../../../../include/my.h"
+#include "my.h"
 
 static int word_count(const char *c)
 {

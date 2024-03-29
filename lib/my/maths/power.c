@@ -4,7 +4,7 @@
 ** File description:
 ** power.c
 */
-#include "../../../include/my.h"
+#include "my.h"
 
 int power(int n, int p)
 {

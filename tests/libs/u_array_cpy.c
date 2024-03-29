@@ -5,7 +5,7 @@
 ** u_array_cpy.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( str_arraycpy , check_str_arracpy )
 {

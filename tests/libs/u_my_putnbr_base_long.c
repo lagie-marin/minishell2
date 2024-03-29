@@ -5,8 +5,8 @@
 ** u_my_putnbr_base_long.c
 */
 #include <criterion/criterion.h>
-#include "../../include/crit.h"
-#include "../../include/my.h"
+#include "crit.h"
+#include "my.h"
 
 Test (my_putnbr_base_long, nbr_16516512_base_2, .init=redirect_all_stdout)
 {

@@ -5,7 +5,7 @@
 ** u_my_gcvt.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_gcvt , check_my_gcvt_fl_1_23456_ndigit_4_res_1_2345 )
 {

@@ -5,7 +5,7 @@
 ** u_my_isletter.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_isletter , check_if_heLlo_compose_of_letter )
 {

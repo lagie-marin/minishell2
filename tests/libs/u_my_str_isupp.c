@@ -5,7 +5,7 @@
 ** u_my_str_isupp.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_str_isupper , check_PAE_is_upp )
 {

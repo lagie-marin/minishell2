@@ -5,9 +5,9 @@
 ** my_show_word_array.c
 */
 
-#include "../../../include/my.h"
+#include "my.h"
 
-int my_show_word_array(char *const *tab)
+int my_show_word_array(char **tab)
 {
     if (!tab)
         return 1;

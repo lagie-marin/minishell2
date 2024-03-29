@@ -5,7 +5,7 @@
 ** into_str.c
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int ch_into_str(char *str, char ch)
 {

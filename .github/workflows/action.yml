@@ -1,5 +1,5 @@
 name: chocolatine
-run-name: ${{github.actor}} chocolatine test run
+run-name: ${{github.actor}} minishell2 test run
 on:
     push:
         branches-ignore:

@@ -5,7 +5,7 @@
 ** my_strcapitalize.c
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int upp(char c)
 {

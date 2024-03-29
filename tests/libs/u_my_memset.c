@@ -5,7 +5,7 @@
 ** u_my_memset.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( my_memset , check_if_memset_work )
 {

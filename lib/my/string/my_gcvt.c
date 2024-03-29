@@ -4,7 +4,7 @@
 ** File description:
 ** my_gcvt.c
 */
-#include "../../../include/my.h"
+#include "my.h"
 
 char *my_gcvt(double number, int ndigit, char *buf)
 {

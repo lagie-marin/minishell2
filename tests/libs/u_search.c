@@ -5,7 +5,7 @@
 ** u_search.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( search , check_reverse_string )
 {

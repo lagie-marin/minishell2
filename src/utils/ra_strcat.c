@@ -4,12 +4,19 @@
 ** File description:
 ** ra_strcat.c
 */
-#include "../../include/my.h"
+#include "my.h"
+
+static int slash_exist(char *src, char *fusion)
+{
+    if (src[0] == fusion[0])
+        return 0;
+    return 1;
+}
 
 char *ra_strcat(char *dest, char *src, char *fusion)
 {
-    int slash = src[0] == fusion[0] ? 0 : 1;
-    int len_new = LEN(dest) + LEN(src) + slash;
+    int slash = slash_exist(src, fusion);
+    int len_new = LEN(dest) + LEN(src) + slash + 1;
     char *new = malloc(len_new + 1);
 
     my_strcpy(new, dest);
@@ -17,6 +24,5 @@ char *ra_strcat(char *dest, char *src, char *fusion)
         my_strcat(new, fusion);
     my_strcat(new, src);
     new[len_new] = '\0';
-    FREE(dest);
     return new;
 }

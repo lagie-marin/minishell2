@@ -4,7 +4,7 @@
 ** File description:
 ** letters.c
 */
-#include "../../include/my.h"
+#include "my.h"
 
 int my_isletter_islow(char args)
 {

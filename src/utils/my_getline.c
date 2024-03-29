@@ -4,7 +4,7 @@
 ** File description:
 ** my_getline.c
 */
-#include "../../include/minishell.h"
+#include "minishell.h"
 
 ssize_t my_getline(char **input, size_t *len, FILE *stream)
 {

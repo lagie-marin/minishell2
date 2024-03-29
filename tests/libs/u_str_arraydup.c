@@ -5,7 +5,7 @@
 ** u_str_arraydup.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( str_arraydup , check_reverse_string )
 {

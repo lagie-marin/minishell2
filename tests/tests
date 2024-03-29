@@ -1,37 +1,37 @@
-[901]
+[01]
 NAME="Nothing"
 SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
 CLEAN=""
 TESTS=
   echo ''
-[901-END]
+[01-END]
 
-[902]
+[02]
 NAME="Exec two command"
 SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
 CLEAN=""
 TESTS=
   echo 'ls /etc'
   echo 'cat /etc/resolv.conf'
-[902-END]
+[02-END]
 
-[903]
+[03]
 NAME="Testing with /usr/bin PATH"
 SETUP="export TERM=xterm ; PATH='/usr/bin'"
 CLEAN=""
 TESTS=
   echo 'pwd'
-[903-END]
+[03-END]
 
-[904]
+[04]
 NAME="Testing with /bin PATH"
 SETUP="export TERM=xterm ; PATH='/bin'"
 CLEAN=""
 TESTS=
   echo 'pwd'
-[904-END]
+[04-END]
 
-[905]
+[05]
 NAME="run commands"
 SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
 CLEAN=""
@@ -41,9 +41,9 @@ TESTS=
   echo 'ls -l /etc'
   sleep 0.5
   echo 'pwd'
-[905-END]
+[05-END]
 
-[906]
+[06]
 NAME="setenv and unsetenv"
 SETUP="/usr/bin/env > .lstenv ; while read varenv ; do unset $varenv ; done < <(/bin/cat .lstenv | /usr/bin/cut -f1 -d=) ; export PATH=/bin:/usr/bin ; export _=ls ; export LS_COLORS=RID ; export MYBG=4 ; export LVL=4 ; export NOTE=2"
 CLEAN="while read varenv ; do export "$varenv" 2>/dev/null ; done  < <(/bin/cat .lstenv) ; /bin/rm -f .lstenv"
@@ -68,9 +68,9 @@ TESTS=
   echo '/usr/bin/env'
   echo 'setenv var1 val1'
   echo 'setenv var2 val2'
-[906-END]
+[06-END]
 
-[907]
+[07]
 NAME="builtin cd"
 SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
 CLEAN=""
@@ -79,20 +79,69 @@ TESTS=
   echo 'ls -l'
   echo 'cd /usr'
   echo 'ls -l'
-[907-END]
+[07-END]
 
-[908]
+[08]
 NAME="many tab and space"
 SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
 CLEAN=""
 TESTS=
   echo -e "\t\t    ls\t     \t-l    \t\t  \t -a /usr   \t\t"
-[908-END]
+[08-END]
 
-[909]
+[09]
 NAME="Launch DivZero program with core dump"
 SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
 CLEAN=""
 TESTS=
   echo "./my_divzero"
-[909-END]
+[09-END]
+[10]
+NAME="Execute folder"
+SETUP="export TERM=xterm ; PATH=''"
+CLEAN=""
+TEST=
+  echo './redirect'
+[10-END]
+[11]
+NAME="execute simple commande with ; in the end"
+SETUP="export TERM=xterm ; PATH=''"
+CLEAN=""
+TEST=
+  echo 'ls'
+[11-END]
+[12]
+NAME="execute simple commande with ; beginning of the line"
+SETUP="export TERM=xterm ; PATH=''"
+CLEAN=""
+TEST=
+  echo ';ls'
+[12-END]
+[13]
+NAME="execute simple commande with ; beginning of the line and end line"
+SETUP="export TERM=xterm ; PATH=''"
+CLEAN=""
+TEST=
+  echo ';ls;'
+[13-END]
+[14]
+NAME="execute 2 commands with ;"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TEST=
+  echo 'ls ; echo truc'
+[14-END]
+[15]
+NAME="many ;"
+SETUP="export TERM=xterm ; PATH=''"
+CLEAN=""
+TEST=
+  echo ';;;;;;;;;;;'
+[15-END]
+[16]
+NAME="ls in the middle ;"
+SETUP="export TERM=xterm ; PATH=''"
+CLEAN=""
+TEST=
+  echo ';;;;;;ls;;;;;'
+[16-END]

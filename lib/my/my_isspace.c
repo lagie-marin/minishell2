@@ -4,7 +4,7 @@
 ** File description:
 ** my_isspace.c
 */
-#include "../../include/my.h"
+#include "my.h"
 
 int my_isspace(char arg)
 {

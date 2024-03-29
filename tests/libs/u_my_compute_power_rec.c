@@ -5,7 +5,7 @@
 ** u_my_compute_power_rec.c
 */
 #include <criterion/criterion.h>
-#include "../../include/my.h"
+#include "my.h"
 
 Test ( power , check_nb_5_power_0_res_1 )
 {
