@@ -61,7 +61,7 @@ NAME = libmy.a
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	ar rc $(NAME) $(OBJ) $(CFLAGS)
 
 clean:
 	rm -f ${OBJ}
