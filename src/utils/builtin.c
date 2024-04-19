@@ -36,10 +36,8 @@ int builtin(char *path, char **args)
         val = my_setenv(args[0], get_content(args));
     if (!my_strcmp(path, "env") && ok_arg(args, (v2f_t){0, 0}, path, &val))
         val = my_env();
-    if (!my_strcmp(path, "exit") && ok_arg(args, (v2f_t){0, 1}, path, &val)) {
-        my_printf("exit\n");
-        my_kill(args[0], args - 1);
-    }
+    if (!my_strcmp(path, "exit") && ok_arg(args, (v2f_t){0, 1}, path, &val))
+        my_kill("0", args - 1);
     if (!my_strcmp(path, "unsetenv") &&
     ok_arg(args, (v2f_t){1, -1}, path, &val))
         val = my_unsetenv(args);

@@ -44,6 +44,19 @@ static char *command_on_project(char *filename)
     return path_command;
 }
 
+static char *get_cmd(char *env_path, char *path)
+{
+    int pos = 0;
+
+    for (int i = 0; env_path[i]; i++) {
+        if (env_path[i] == path[pos])
+            pos++;
+        else
+            pos = 0;
+    }
+    return &path[pos];
+}
+
 static char *command_on_bins(char *filename)
 {
     char *path = getenv("PATH");
@@ -51,15 +64,17 @@ static char *command_on_bins(char *filename)
     char *bin;
 
     for (int i = 0; bins[i]; i++) {
-        bin = ra_strcat(bins[i], filename, "/");
+        bin = ra_strcat(bins[i], get_cmd(bins[i], filename), "/");
         if (IS_EXE(bin) == 0) {
             free_strarray(bins);
             Shell->error = 0;
             return bin;
         } else
             Shell->error = 2;
-        if (ACCESS(bin) == -1)
+        if (ACCESS(bin) == -1) {
+            printf("bin: %s\n", bin);
             Shell->error = 1;
+        }
         FREE(bin);
     }
     free_strarray(bins);

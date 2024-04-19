@@ -27,7 +27,8 @@ static void minishell(void)
             my_printf("%s[~%s%s%s ~] %s~⭼ %s", RE, BL, MINI, RE, BL, WH);
         my_getline(&input, &len, stdin);
         args = my_str_to_word_array(input);
-        play_command(args);
+        if (args[0] != NULL)
+            play_command(args);
         FREE(input);
         input = NULL;
     }
