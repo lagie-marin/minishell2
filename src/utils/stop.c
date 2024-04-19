@@ -6,9 +6,8 @@
 */
 #include "minishell.h"
 
-void stop(char *status, char *path, char *error)
+void stop(char *status, char *path, char **args, char *error)
 {
     my_printf("%s%s", path, error);
-    FREE(path);
-    my_kill(status);
+    my_kill(status, args);
 }

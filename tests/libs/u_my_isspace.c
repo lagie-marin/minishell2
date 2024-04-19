@@ -12,12 +12,12 @@ Test ( my_isspace , check_space_is_space )
 {
     char space = ' ';
 
-    cr_assert(my_isspace(space) == isspace(space) > 0);
+    cr_assert(my_isspace(space) && isspace(space) > 0);
 }
 
 Test ( my_isspace , check_tab_is_space )
 {
     char space = '\t';
 
-    cr_assert(my_isspace(space) == isspace(space) > 0);
+    cr_assert(my_isspace(space) && isspace(space) > 0);
 }

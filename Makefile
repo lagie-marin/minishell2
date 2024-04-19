@@ -1,6 +1,6 @@
 ##
 ## EPITECH PROJECT, 2024
-## minishell2
+## B-PSU-200-LYN-2-1-minishell1-marin.lagie
 ## File description:
 ## Makefile
 ##
@@ -20,9 +20,7 @@ SRC = ./src/built-in/load_env.c \
 	./src/utils/ra_array.c \
 	./src/utils/ra_strcat.c \
 	./src/utils/stop.c \
-	./src/utils/commands.c \
-	./src/utils/error/segfault.c \
-	./src/utils/error/error_file.c \
+	./src/utils/error_file.c \
 
 SRC_TEST = ./lib/my/ch_into_str.c \
 	./lib/my/get_int.c \
@@ -119,11 +117,12 @@ SRC_TEST = ./lib/my/ch_into_str.c \
 	./tests/libs/u_str_arraydup.c \
 	./tests/libs/u_swap_char.c \
 	./tests/libs/u_swap_str.c \
+	./tests/libs/u_letters.c \
+	./tests/libs/u_my_str_is_alphanumeric.c \
 	./tests/redirect/redirect_all_stdout.c \
 
 OBJ = ${SRC:.c=.o}
-OBJ_TEST = ${SRC_TEST:.c=.o}
-CFLAGS = -g3 -Wall -Wextra -Iinclude
+CFLAGS = -I./include
 NAME = mysh
 all: $(NAME)
 
@@ -143,7 +142,7 @@ fclean: clean
 	rm -f ${NAME}
 	rm -f vgcore.*
 tests_run:
-	gcc -o unit_tests ${SRC_TEST} ${SRC} --coverage -lcriterion
+	gcc -o unit_tests ${SRC_TEST} ${CFLAGS} --coverage -lcriterion
 	./unit_tests
 	gcovr --exclude tests/
 

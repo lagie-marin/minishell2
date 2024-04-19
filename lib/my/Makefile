@@ -1,20 +1,23 @@
 ##
 ## EPITECH PROJECT, 2024
-## B-PSU-200-LYN-2-1-minishell1-marin.lagie
+## minishell2
 ## File description:
 ## Makefile
 ##
 SRC = ./ch_into_str.c \
 	./get_int.c \
 	./is_smaller.c \
+	./letters.c \
 	./maths/my_compute_power_rec.c \
 	./maths/my_compute_square_root.c \
 	./maths/my_find_prime_sup.c \
 	./maths/my_is_prime.c \
 	./maths/power.c \
 	./my_intlen.c \
+	./my_isspace.c \
 	./my_itoa.c \
 	./my_sqrt.c \
+	./my_str_is_alphanumeric.c \
 	./my_strcapitalize.c \
 	./my_strlowcase.c \
 	./my_strupcase.c \
@@ -30,12 +33,12 @@ SRC = ./ch_into_str.c \
 	./puts/my_show_word_array.c \
 	./puts/my_printf.c \
 	./search.c \
+	./str.c \
 	./string/array/my_sort_int_array.c \
 	./string/array/my_str_to_word_array.c \
 	./string/array/str_arraycpy.c \
 	./string/array/str_arraydup.c \
 	./string/array/str_arraylen.c \
-	./string/array/my_strtok.c \
 	./string/free/free_strarray.c \
 	./string/my_atoi.c \
 	./string/my_gcvt.c \
@@ -50,10 +53,7 @@ SRC = ./ch_into_str.c \
 	./string/my_strncmp.c \
 	./string/my_strncpy.c \
 	./string/my_strstr.c \
-	./letters.c \
-	./my_isspace.c \
-	./str.c \
-	./my_str_is_alphanumeric.c \
+	./string/my_strtok.c \
 
 OBJ = ${SRC:.c=.o}
 CFLAGS = -g3 -Wall -Wextra -I../../include

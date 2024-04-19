@@ -5,7 +5,7 @@
 ** my_printf.c
 */
 
-#include "my_printf.h"
+#include "my.h"
 
 static void print(char c, va_list ap)
 {

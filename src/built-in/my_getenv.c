@@ -26,7 +26,7 @@ char *my_getenv(char *t)
         if (cmp)
             return &env[i][cmp + 1];
     }
-    return "";
+    return 0;
 }
 
 int var_exist(char *var)

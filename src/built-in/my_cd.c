@@ -21,10 +21,13 @@ int my_cd(char *path)
 {
     if (!my_strcmp(path, "-"))
         path = my_strdup(my_getenv("OLDPWD"));
-    if (!path || !my_strcmp(path, "~"))
+    if (!path || !my_strcmp(path, "~")) {
         path = my_getenv("HOME");
-    if (!path)
-        exit(84);
+        if (!path) {
+            my_printf("No $home variable set.\n");
+            return 1;
+        }
+    }
     if (my_strcmp(path, ".") && my_strcmp(path, "./"))
         my_setenv("OLDPWD", my_getenv("PWD"));
     if (chdir(path) != 0) {

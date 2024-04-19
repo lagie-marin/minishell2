@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-int my_show_word_array(char **tab)
+int my_show_word_array(char *const *tab)
 {
     if (!tab)
         return 1;

@@ -14,7 +14,7 @@
     #define LEN(str) my_strlen(str)
     #define PUT_ERROR(str) write(2, str, LEN(str))
     #define IS_CARACT(ch) (ch >= '!' && ch <= '~' && ch != ' ')
-typedef const char cc;
+typedef const char cc_t;
 
 /**
  * @brief pemret de mettre à la puissance un nombre
@@ -252,7 +252,7 @@ int search(int i, int nb);
  * @param tab la liste à parcourir
  * @return int
  */
-int my_show_word_array(char **tab);
+int my_show_word_array(char *const *tab);
 
 /**
  * @brief permet de split chaque mot de la phase
@@ -374,10 +374,10 @@ int free_strarray(char **word_array);
 /**
  * @brief permet de split un str à partir d'un délimiteur
  * @param str la chaine à split
- * @param delim le caractère qui permettra de split
+ * @param delimiters le caractère qui permettra de split
  * @return char** retourne une liste qui contient le str split
  */
-char **my_strtok(const char *str, cc delim);
+char **my_strtok(const char *str, cc_t delimiters);
 
 /**
  * @brief permet de récuperer la taille de la liste

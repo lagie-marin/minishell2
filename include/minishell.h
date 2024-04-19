@@ -22,22 +22,16 @@
     #define MINI " ⬼ minishell ⤗ "
     #define ACCESS(str) access(str, F_OK)
     #define IS_EXE(str) access(str, X_OK)
-typedef struct commands_s commands_t;
-typedef struct shell_s shell_t;
-typedef struct vector2f_s v2f;
+    #define ERROR_FILE(path, error) my_printf("%s%s", path, error)
 
-struct commands_s {
-    char **args;
-    char *path;
-    int error;
-    commands_t *next;
-};
+typedef struct shell_s shell_t;
+typedef struct vector2f_s v2f_t;
 
 struct shell_s {
     char **env;
     int len_env;
-    commands_t *commands;
-    void (*exit)(char *status, char *path, char *error);
+    void (*exit)(char *status, char *path, char **args, char *error);
+    int error;
 };
 
 struct vector2f_s {
@@ -47,16 +41,15 @@ struct vector2f_s {
 
 extern shell_t *Shell;
 
-void execute(commands_t *cmd);
+void execute(char *path, char **args);
+char **get_path(char *path);
 int compare_type(char *str, char *str1);
 int var_exist(char *var);
 char *ra_strcat(char *dest, char *src, char *fusion);
 char **ra_array(char **array, char *new_line);
-int builtin(commands_t *cmd);
-void stop(char *status, char *path, char *error);
+int builtin(char *path, char **args);
+void stop(char *status, char *path, char **args, char *error);
 char *color_manager(int i);
 ssize_t my_getline(char **input, size_t *len, FILE *stream);
-void add_command(char *command);
-int rm_all_command(void);
 int error_file(char *path, char *error);
 #endif

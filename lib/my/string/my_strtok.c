@@ -1,20 +1,18 @@
 /*
-** EPITECH PROJECT, 2023
-** B-MUL-100-LYN-1-1-myradar-marin.lagie
+** EPITECH PROJECT, 2024
+** libs
 ** File description:
-** my_str_to_word_array.c
+** my_strtok.c
 */
-
 #include "my.h"
 
-static int word_count(const char *c)
+static int word_count(const char *c, cc_t delimiters)
 {
     int count = 1;
 
-    if (c[0] == '\0')
-        return 0;
     for (int i = 0; c[i]; i++)
-        if (my_isspace(c[i]) && i > 0 && IS_CARACT(c[i - 1]))
+        if ((c[i] == delimiters && i > 0 && c[i - 1] != delimiters) ||
+            (c[i] == '\t' && c[i - 1] != '\t'))
             count++;
     return count;
 }
@@ -28,25 +26,25 @@ static int len_word(const char *str, int i)
     return x - i;
 }
 
-char **my_str_to_word_array(const char *str)
+char **my_strtok(const char *str, cc_t delimiters)
 {
-    int nb_word = word_count(str);
+    int nb_word = word_count(str, delimiters);
     char **word_array = malloc(sizeof(char *) * (nb_word + 1));
     int x = 0;
     int y = 0;
     int i = 0;
 
     for (; y < nb_word && nb_word > 0; y++) {
+        word_array[y] = malloc(len_word(str, x) + 1);
         i = 0;
-        while (my_isspace(str[x]))
+        while (str[x] == delimiters)
             x++;
-        word_array[y] = my_memset(word_array[y], '\0', len_word(str, x) + 1);
-        for (; str[x] != '\0' && IS_CARACT(str[x]); x++) {
+        for (; str[x] && str[x] != delimiters; x++) {
             word_array[y][i] = str[x];
             word_array[y][i + 1] = '\0';
             i++;
         }
     }
-    word_array[nb_word] = NULL;
+    word_array[y] = NULL;
     return word_array;
 }

@@ -12,11 +12,10 @@
     #define FLOAT_EXEP ": Floating exception (core dumped)\n"
     #define SEGFAULT "Segmentation fault\n"
     #define PERM_DENIED ": Permission denied.\n"
-
 int my_env(void);
 void load_env(char **env);
 int my_unsetenv(char **args);
-void my_kill(char *status);
+void my_kill(char *status, char **args);
 char *my_getenv(char *type);
 int my_setenv(char *var, char *content);
 int my_cd(char *path);

@@ -4,32 +4,32 @@
 ** File description:
 ** execute.c
 */
-#include "minishell.h"
+#include "../include/minishell.h"
 
-static void segfault(int status, char *path)
+static void segfault(int status, char *path, char **args)
 {
     char str[my_intlen(status) + 1];
 
     my_itoa(status, str);
     if (WIFSIGNALED(status)) {
         if (WTERMSIG(status) == SIGFPE)
-            Shell->exit(str, path, FLOAT_EXEP);
+            Shell->exit(str, path, args, FLOAT_EXEP);
         if ((WTERMSIG(status) == SIGSEGV && !WCOREDUMP(status)) ||
             WCOREDUMP(status)) {
-            Shell->exit(str, path, SEGFAULT);
+            Shell->exit(str, path, args, SEGFAULT);
         }
     }
     FREE(path);
 }
 
-static char *destroy_path(char *path_command, commands_t *cmd, int error)
+static char *destroy_path(char *path_command, int error)
 {
-        cmd->error = error;
-        FREE(path_command);
-        return NULL;
+    FREE(path_command);
+    Shell->error = error;
+    return NULL;
 }
 
-static char *command_on_project(char *filename, commands_t *cmd)
+static char *command_on_project(char *filename)
 {
     char *pwd = my_strdup(my_getenv("PWD"));
     char *path_command = ra_strcat(pwd, filename, "/");
@@ -37,16 +37,14 @@ static char *command_on_project(char *filename, commands_t *cmd)
 
     FREE(pwd);
     if (ACCESS(path_command) == -1)
-        return destroy_path(path_command, cmd, 1);
+        return destroy_path(path_command, 1);
     stat(path_command, &s);
-    if (IS_EXE(path_command) == -1)
-        return destroy_path(path_command, cmd, 2);
-    if (S_ISDIR(s.st_mode))
-        return destroy_path(path_command, cmd, 3);
+    if (IS_EXE(path_command) == -1 || S_ISDIR(s.st_mode))
+        return destroy_path(path_command, 2);
     return path_command;
 }
 
-static char *command_on_bins(char *filename, commands_t *cmd)
+static char *command_on_bins(char *filename)
 {
     char *path = getenv("PATH");
     char **bins = my_strtok(path, ':');
@@ -56,37 +54,36 @@ static char *command_on_bins(char *filename, commands_t *cmd)
         bin = ra_strcat(bins[i], filename, "/");
         if (IS_EXE(bin) == 0) {
             free_strarray(bins);
-            cmd->error = 0;
+            Shell->error = 0;
             return bin;
         } else
-            cmd->error = 2;
+            Shell->error = 2;
         if (ACCESS(bin) == -1)
-            cmd->error = 1;
+            Shell->error = 1;
         FREE(bin);
     }
     free_strarray(bins);
     return NULL;
 }
 
-static char *get_file_path(commands_t *cmd)
+static char *get_file_path(char *path)
 {
-    char *path = cmd->path;
-    char *bin = command_on_project(path, cmd);
+    char *bin = command_on_project(path);
 
-    if (path[0] != '.' && path[1] != '/' && bin == NULL && cmd->error != 3)
-        bin = command_on_bins(path, cmd);
+    if (path[0] != '.' && path[1] != '/' && bin == NULL && Shell->error != 3)
+        bin = command_on_bins(path);
     if (bin != NULL)
         return bin;
-    if (cmd->error == 1)
+    if (Shell->error == 1)
         error_file(path, NOT_FOUND);
-    if (cmd->error == 2 || cmd->error == 3)
+    if (Shell->error == 2 || Shell->error == 3)
         error_file(path, PERM_DENIED);
     return NULL;
 }
 
-void execute(commands_t *cmd)
+void execute(char *path, char **args)
 {
-    char *bin = get_file_path(cmd);
+    char *bin = get_file_path(path);
     pid_t pid;
     int status = 0;
 
@@ -94,7 +91,7 @@ void execute(commands_t *cmd)
         return;
     pid = fork();
     if (pid == 0)
-        execve(bin, cmd->args, Shell->env);
+        execve(bin, args, Shell->env);
     waitpid(pid, &status, 0);
-    segfault(status, bin);
+    segfault(status, bin, args);
 }
