@@ -7,14 +7,12 @@
 
 #include "my.h"
 
-static int word_count(const char *c)
+static int word_count(const char *str)
 {
-    int count = 1;
+    int count = 0;
 
-    if (c[0] == '\0')
-        return 0;
-    for (int i = 0; c[i]; i++)
-        if (my_isspace(c[i]) && i > 0 && IS_CARACT(c[i - 1]))
+    for (int i = 0; str[i]; i++)
+        if (IS_CARACT(str[i]) && !IS_CARACT(str[i + 1]))
             count++;
     return count;
 }

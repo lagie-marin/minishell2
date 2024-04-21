@@ -13,7 +13,7 @@
     #define FREE(str) if (str != NULL) free(str)
     #define LEN(str) my_strlen(str)
     #define PUT_ERROR(str) write(2, str, LEN(str))
-    #define IS_CARACT(ch) (ch >= '!' && ch <= '~' && ch != ' ')
+    #define IS_CARACT(ch) (ch >= '!' && ch <= '~' && !my_isspace(ch))
 typedef const char cc_t;
 
 /**

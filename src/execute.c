@@ -71,10 +71,8 @@ static char *command_on_bins(char *filename)
             return bin;
         } else
             Shell->error = 2;
-        if (ACCESS(bin) == -1) {
-            printf("bin: %s\n", bin);
+        if (ACCESS(bin) == -1)
             Shell->error = 1;
-        }
         FREE(bin);
     }
     free_strarray(bins);

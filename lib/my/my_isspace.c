@@ -8,7 +8,7 @@
 
 int my_isspace(char arg)
 {
-    if (arg == ' ' || arg >= '\b' && arg <= '\r')
+    if (arg == ' ' || (arg >= '\b' && arg <= '\r'))
         return 1;
     return 0;
 }
