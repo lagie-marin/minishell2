@@ -122,7 +122,7 @@ SRC_TEST = ./lib/my/ch_into_str.c \
 	./tests/redirect/redirect_all_stdout.c \
 
 OBJ = ${SRC:.c=.o}
-CFLAGS = -g3 -I./include
+CFLAGS = -g3 -fno-builtin -I./include
 NAME = mysh
 all: $(NAME)
 

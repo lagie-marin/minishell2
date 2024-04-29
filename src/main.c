@@ -13,7 +13,6 @@ static void play_command(char **args)
 {
     if (args != NULL && !builtin(args[0], &args[1]))
         execute(args[0], args);
-    free_strarray(args);
     if (!isatty(STDIN_FILENO) && Shell->error != 0)
         exit(1);
 }

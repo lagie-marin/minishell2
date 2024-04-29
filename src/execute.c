@@ -59,7 +59,7 @@ static char *get_cmd(char *env_path, char *path)
 
 static char *command_on_bins(char *filename)
 {
-    char *path = getenv("PATH");
+    char *path = my_getenv("PATH");
     char **bins = my_strtok(path, ':');
     char *bin;
 

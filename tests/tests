@@ -144,3 +144,11 @@ CLEAN=""
 TESTS=
   echo -e "\t\v\t msl\f"
 [015-END]
+
+[016]
+NAME=""
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo -e "    ls     -l    -a   "
+[016-END]
