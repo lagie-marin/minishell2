@@ -8,7 +8,7 @@ on:
             - " ga-ignore-*"
 
 env:
-    MIRROR_URL: git@github.com:EpitechPromo2028/B-MUL-200-LYN-2-1-myrpg-marin.lagie.git
+    MIRROR_URL: git@github.com:EpitechPromo2028/B-PSU-200-LYN-2-1-minishell2-marin.lagie.git
     EXECUTABLES: "mysh"
     ALLOW_FUNC: "access chdir execve exit fork getcwd isatty perror stdin free getline malloc stat waitpid write __stack_chk_fail strtok"
 
