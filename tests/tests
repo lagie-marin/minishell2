@@ -152,3 +152,18 @@ CLEAN=""
 TESTS=
   echo -e "    ls     -l    -a   "
 [016-END]
+
+[017]
+NAME=""
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo -e "ls; echo truc"
+[017-END]
+[018]
+NAME=""
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo -e "cp src/main.c /tmp/main ; ls /tmp/main"
+[018-END]
